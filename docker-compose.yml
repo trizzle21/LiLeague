@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  app:
+    container_name: frontend
+    build: ./app
+    command: npm run build
+    ports:
+      - '3000:3000'
+    volumes:
+     -  .:/code/app
+    environment:
+      - NODE_ENV=development
+  web:
+    container_name: backend
+    build: ./web
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code/web
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    container_name: chessleague_db
+    image: postgres
+    ports:
+      - '5432'
+  redis:
+    image: "redis:alpine"
+
