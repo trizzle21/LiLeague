@@ -1,1 +1,2 @@
-# Chess League v1
+# LiLeague v1
+

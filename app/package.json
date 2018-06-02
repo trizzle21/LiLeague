@@ -1,14 +1,31 @@
 {
-  "name": "app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "lileague",
+  "version": "1.0.0",
+  "description": "an online chess league generator",
+  "main": "index.js",
+  "repository": "git@github.com:trizzle21/LiLeague.git",
+  "author": "Tyler Ross",
+  "license": "GPL-3.0",
   "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "webpack": "^4.8.3",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.1.3"
   },
   "scripts": {
-    "build": "webpack"
-
+    "start:dev": "webpack-dev-server --host 0.0.0.0 --port 3000 --hot --inline --content-base ."
   }
 }
