@@ -1,7 +1,22 @@
 import { connect } from 'react-redux';
-import LoginComponent from './loginComponent.jsx';
+import LoginComponent from './LoginComponent';
+
+const mapStateToProps = (state) => {
+  return {
+    isLoginPending: state.isLoginPending,
+    isLoginSuccess: state.isLoginSuccess,
+    loginError: state.loginError
+  };
 
 
-const LoginContainer = connect()(LoginComponent);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (email, password) => dispatch(login(email, password))
+  };
+}
 
-export default LoginContainer
+
+const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
+
+
+export default LoginContainer;

@@ -7,5 +7,6 @@ LEAGUE_TYPE = (
 MEMBER_TYPE = (
     ('A', 'League Admin'),
     ('P', 'Participant'),
+    ('S', 'Subsitute')
 )
 

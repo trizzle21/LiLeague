@@ -10,6 +10,7 @@ class League(models.Model):
     slug = models.SlugField()
     type = models.CharField(choices=LEAGUE_TYPE, default='W', max_length=2)
     time_control = models.CharField(max_length=36)
+    fixed_date = models.DateField(null=True)
 
     class Meta:
         db_table = 'league'
