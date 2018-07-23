@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from core.api.constants import LEAGUE_TYPE, MEMBER_TYPE
+from django.contrib.auth.models import AbstractUser
 
 
 class League(models.Model):
@@ -25,18 +26,23 @@ class LeagueMembership(models.Model):
         db_table = 'league_membership'
 
 
-class User(models.Model):
+class User(AbstractUser):
     username = models.CharField(max_length=36)
-    # password = 
-    # Image uploaded to S3
-    rating = models.PostiveIntegerField()
+    email = models.EmailField(
+        verbose_name='email address',
+        max_length=255,
+        unique=True,
+    )
+    active = models.BooleanField(default=True)
+    admin = models.BooleanField(default=False) # a superuser
+    rating = models.PositiveIntegerField()
     client_id = models.CharField(max_length=36)
-    email = models.CharField(max_length=36)
     leagues = models.ManyToManyField(League, through='LeagueMembership')
 
     class Meta:
         db_table = 'user'
         verbose_name = 'user'
+
 
 class Pairing(models.Model):
     round_number = models.IntegerField()
@@ -46,8 +52,6 @@ class Pairing(models.Model):
     league = models.ForeignKey('League')
     season = models.ForeignKey('Season')
     
-    #TODO add chat conversations
-
     class Meta:
         db_table = 'pairing'
         verbose_name = 'pairings'
@@ -71,8 +75,6 @@ class Season(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
 
-
     class Meta:
         db_table = 'season'
         verbose_name = 'season'
-
