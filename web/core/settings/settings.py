@@ -25,7 +25,8 @@ SECRET_KEY = SECRET_KEY
 DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['0.0.0.0']
-AUTH_USER_MODEL = api.User'
+
+AUTH_USER_MODEL = 'api.User'
 
 
 # Application definition

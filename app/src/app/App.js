@@ -4,7 +4,6 @@ import { Login } from './login/loginContainer';
 import { Register } from './login/registerContainer';
 
 
-
 class App extends Component {
   render() {
     return (
@@ -18,20 +17,5 @@ class App extends Component {
     );
   }
 }
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <h1 className="App-title">Welcome to React</h1>
-//         </header>
-//         <p className="App-intro">
-//           LOLOL
-//         </p>
-//       </div>
-//     );
-//   }
-// }
 
 export default App;

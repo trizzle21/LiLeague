@@ -9,4 +9,3 @@ MEMBER_TYPE = (
     ('P', 'Participant'),
     ('S', 'Subsitute')
 )
-
