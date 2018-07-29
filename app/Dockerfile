@@ -5,13 +5,12 @@ RUN npm install -g webpack
 
 EXPOSE 3000
 
-
 WORKDIR /tmp
 COPY package.json /tmp/
 COPY yarn.lock /tmp/
 RUN yarn install
 
-ENV APP_HOME /code
+ENV APP_HOME /code/app
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 RUN cp -a /tmp/node_modules $APP_HOME

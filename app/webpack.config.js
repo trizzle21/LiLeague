@@ -10,13 +10,6 @@ module.exports = {
   },
   module: {
     rules: [
-      { 
-          test: /\.js$/, 
-          loader: 'babel-loader',
-          options: {
-            presets: ["es2015", "react"]
-          }
-      },
       {
         test: /\.jsx?$/,
         loader: "babel-loader",
@@ -24,12 +17,11 @@ module.exports = {
           presets: ["es2015", "react"]
         }
       },
-      
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: './public/index.html'
     })
   ],
   devServer: {
@@ -41,7 +33,6 @@ module.exports = {
   watchOptions: {
     poll: true,
     ignored: /node_modules/
-
   }
 
 };

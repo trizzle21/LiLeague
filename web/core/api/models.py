@@ -8,7 +8,7 @@ from django.contrib.auth.models import AbstractUser
 class League(models.Model):
     name = models.CharField(max_length=36)
     slug = models.SlugField()
-    type_ = models.CharField(choices=LEAGUE_TYPE, default='W', max_length=2)
+    type = models.CharField(choices=LEAGUE_TYPE, default='W', max_length=2)
     time_control = models.CharField(max_length=36)
     fixed_date = models.DateField(null=True)
 
@@ -27,7 +27,7 @@ class LeagueMembership(models.Model):
 
 
 class User(AbstractUser):
-    username = models.CharField(max_length=36)
+    username = models.CharField(max_length=36, unique=True)
     email = models.EmailField(
         verbose_name='email address',
         max_length=255,
@@ -39,6 +39,8 @@ class User(AbstractUser):
     client_id = models.CharField(max_length=36)
     leagues = models.ManyToManyField(League, through='LeagueMembership')
 
+    USERNAME_FIELD = 'username'
+
     class Meta:
         db_table = 'user'
         verbose_name = 'user'
@@ -46,8 +48,8 @@ class User(AbstractUser):
 
 class Pairing(models.Model):
     round_number = models.IntegerField()
-    white = models.ForeignKey('User')
-    black = models.ForeignKey('User')
+    white = models.ForeignKey('User', related_name='white')
+    black = models.ForeignKey('User', related_name='black')
     date = models.DateField()
     league = models.ForeignKey('League')
     season = models.ForeignKey('Season')
@@ -58,7 +60,7 @@ class Pairing(models.Model):
 
 
 class Round(models.Model):
-    rounds = models.OneToMany('Pairing')
+    rounds = models.ForeignKey('Pairing')
     start_date = models.DateField()
     end_date = models.DateField()
 

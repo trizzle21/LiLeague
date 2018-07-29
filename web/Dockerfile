@@ -5,7 +5,7 @@ MAINTAINER Tyler Ross
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev postgresql-client-9.4
 
-ENV APP_HOME /code
+ENV APP_HOME /web
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 

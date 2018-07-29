@@ -6,8 +6,8 @@ const mapStateToProps = (state) => {
     isLoginPending: state.isLoginPending,
     isLoginSuccess: state.isLoginSuccess,
     loginError: state.loginError
-  };
-
+    };
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {

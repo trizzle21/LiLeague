@@ -1,6 +1,6 @@
-import { React } from 'React';
+import React, { Component, PropTypes } from 'react';
 
-class LoginComponent extends React.Component {
+class LoginComponent extends Component {
 
     constructor(props){
         super(props);
@@ -53,3 +53,5 @@ class LoginComponent extends React.Component {
     }
 
 }
+
+export default LoginComponent;

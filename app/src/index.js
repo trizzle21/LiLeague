@@ -18,12 +18,12 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 const middleware = applyMiddleware(thunk, logger);
-// const store = createStore(rootReducer, middleware);
+const store = createStore(rootReducer, middleware);
 
 ReactDOM.render(
-  // <Provider store={store}>
+  <Provider store={store}>
     <App />,
-  // </Provider>,
+  </Provider>,
   document.getElementById('root')
 );
 registerServiceWorker();
