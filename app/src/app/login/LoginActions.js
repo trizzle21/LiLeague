@@ -10,3 +10,23 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export function loginRequest() {
   return { type: LOGIN_REQUEST }
 }
+
+export function loginFailure() {
+  return { type: LOGIN_FAILURE }
+}
+
+export function loginSuccess() {
+  return { type: LOGIN_SUCCESS }
+}
+
+export function registerRequest() {
+  return { type: REGISTER_REQUEST }
+}
+
+export function registerFailure() {
+  return { type: REGISTER_FAILURE }
+}
+
+export function registerSuccess() {
+  return { type: REGISTER_SUCCESS }
+}
